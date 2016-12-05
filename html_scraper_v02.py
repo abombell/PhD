@@ -1,3 +1,23 @@
+# Written by: Alessandro Bombelli, University of California, Irvine
+# Routine that HTML-parses a flightaware.com page containing a specific flight
+# info, and converts them into a .txt file that is easily readable
+# Updates:
+# 5 December 2016:
+# In this version, the output is a (Nt,9) matrix, where Nt is the number of
+# time entries (i.e., how many times a different position of the flight was
+# recorded). Each row is organized as follows
+# [DAY H M S AMPM LAT LON GS ALT]
+# where
+# DAY  = 1 for Mon, 2 for Tue, ... , 7 for Sun
+# H    = hour (12-hour format)
+# M    = minute
+# S    = second
+# AMPM = AM or PM
+# LAT  = latitude [deg]
+# LON  = longitude [deg]
+# GS   = ground speed [kts]
+# ALT  = altitude [ft]
+
 from bs4 import BeautifulSoup
 import urllib
 import numpy as np
